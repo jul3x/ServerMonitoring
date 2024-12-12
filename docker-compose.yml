@@ -43,6 +43,8 @@ services:
     container_name: grafana
     restart: unless-stopped
     environment:
+      - GF_SERVER_DOMAIN=j3x-server
+      - GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s/monitoring/
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USER}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
     volumes:
